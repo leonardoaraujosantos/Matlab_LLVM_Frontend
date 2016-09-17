@@ -7,16 +7,22 @@ using namespace std;
 extern "C" int yywrap() { }
 %}
 
+digit [0-9]
+integer {digit}+
+real ({digit}+[.]{digit}*)|({digit}*[.]{digit}+)
 %%
 
 [ tn]                 ;
-[0-9]+.[0-9]*           {cout << "DOUBLE: " << yytext << endl;}
-[0-9]+                  {cout << "INTEGER: " << yytext << endl;}
+{real}                  {cout << "DOUBLE: " << yytext << endl;}
+{integer}               {cout << "INTEGER: " << yytext << endl;}
 "function"              {cout << "FUNCTION: " << yytext << endl;}
 "end"                   {cout << "END: " << yytext << endl;}
+"if"                    {cout << "IF: " << yytext << endl;}
+"for"                    {cout << "FOR: " << yytext << endl;}
 [a-zA-Z_][a-zA-Z0-9_]*  {cout << "Identifier: " << yytext << endl;}
 ","                     {cout << "Comma: " << yytext << endl;}
-"."                     {cout << "Comma: " << yytext << endl;}
+"."                     {cout << "Dot: " << yytext << endl;}
+":"                     {cout << "DotDot: " << yytext << endl;}
 ";"                     {cout << "EndLine: " << yytext << endl;}
 "("                     {cout << "Open Parenthesis: " << yytext << endl;}
 ")"                     {cout << "Close Parenthesis: " << yytext << endl;}
@@ -24,6 +30,8 @@ extern "C" int yywrap() { }
 "]"                     {cout << "Close Bracket: " << yytext << endl;}
 "{"                     {cout << "Open Brace: " << yytext << endl;}
 "}"                     {cout << "Close Brace: " << yytext << endl;}
+"&&"                    {cout << "AND: " << yytext << endl;}
+"||"                    {cout << "OR: " << yytext << endl;}
 "=="                    {cout << "EQUAL: " << yytext << endl;}
 "~="                    {cout << "DIFFERENT: " << yytext << endl;}
 "="                     {cout << "ASSIGN: " << yytext << endl;}
