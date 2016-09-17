@@ -18,7 +18,16 @@ real ({digit}+[.]{digit}*)|({digit}*[.]{digit}+)
 "function"              {cout << "FUNCTION: " << yytext << endl;}
 "end"                   {cout << "END: " << yytext << endl;}
 "if"                    {cout << "IF: " << yytext << endl;}
-"for"                    {cout << "FOR: " << yytext << endl;}
+"else"                  {cout << "ELSE: " << yytext << endl;}
+"elseif"                {cout << "elseif: " << yytext << endl;}
+"switch"                {cout << "SWITCH: " << yytext << endl;}
+"case"                  {cout << "CASE: " << yytext << endl;}
+"otherwise"             {cout << "OTHERWISE: " << yytext << endl;}
+"for"                   {cout << "FOR: " << yytext << endl;}
+"while"                 {cout << "WHILE: " << yytext << endl;}
+"continue"              {cout << "CONTINUE: " << yytext << endl;}
+"break"                 {cout << "BREAK: " << yytext << endl;}
+"return"                {cout << "RETURN: " << yytext << endl;}
 [a-zA-Z_][a-zA-Z0-9_]*  {cout << "Identifier: " << yytext << endl;}
 ","                     {cout << "Comma: " << yytext << endl;}
 "."                     {cout << "Dot: " << yytext << endl;}
@@ -43,6 +52,7 @@ real ({digit}+[.]{digit}*)|({digit}*[.]{digit}+)
 "-"                     {cout << "Minus: " << yytext << endl;}
 "*"                     {cout << "Multiply: " << yytext << endl;}
 "/"                     {cout << "Divide: " << yytext << endl;}
+"\\"                     {cout << "DIVIDE LINEAR: " << yytext << endl;}
 "^"                     {cout << "Exponential: " << yytext << endl;}
 "%".*                   {}
 .                       printf("Unknown token!n"); yyterminate();
