@@ -32,6 +32,10 @@ Bellow we can find some references used by me during the project.
 * https://en.wikipedia.org/wiki/Compiler
 * https://en.wikipedia.org/wiki/Static_single_assignment_form
 * https://en.wikipedia.org/wiki/Abstract_syntax_tree
+* https://en.wikipedia.org/wiki/Backus%E2%80%93Naur_Form
+* https://en.wikipedia.org/wiki/Just-in-time_compilation
+* https://en.wikipedia.org/wiki/Formal_grammar
+* https://en.wikipedia.org/wiki/Parsing
 
 #### LLVM
 * http://llvm.org/
