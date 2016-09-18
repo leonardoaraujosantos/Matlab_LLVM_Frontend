@@ -19,6 +19,12 @@ make
 mat2llvm simpleFunc.m -o simpleFunc.ll
 ```
 
+### Where are we?
+We're going to work on the part related to Scanning, Parsing, and emiting Intermediate code.
+
+![alt tag](https://raw.githubusercontent.com/leonardoaraujosantos/Matlab_LLVM_Frontend/master/docs/imgs/compiler_wiki.png)
+
+
 ### Reference Tutorials
 Bellow we can find some references used by me during the project.
 
