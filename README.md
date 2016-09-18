@@ -38,6 +38,10 @@ Bellow we can find some references used by me during the project.
 * http://aquamentus.com/flex_bison.html
 * http://www.eecg.toronto.edu/~jzhu/csc467/readings/csc467-tut01.pdf
 * http://www.eecg.toronto.edu/~jzhu/csc467/readings/csc467-bison-tut.pdf
+* https://gist.github.com/codebrainz/2933703
+* http://www.eecg.toronto.edu/~jzhu/csc467/readings/csc467-bison-tut.pdf
+* https://github.com/jimmahoney/bison_calculator?files=1
+* https://www.gnu.org/software/bison/manual/html_node/Graphviz.html
 
 #### Other Matlab frontend
 * https://github.com/rose-compiler/matlab-frontend
