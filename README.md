@@ -144,6 +144,7 @@ Bellow we can find some references used by me during the project.
 * http://dev.stephendiehl.com/numpile/
 * http://kripken.github.io/emscripten-site/index.html
 * http://stackoverflow.com/questions/11485531/what-exactly-phi-instruction-does-and-how-to-use-it-in-llvm
+* http://llvm.org/devmtg/2013-11/slides/Zakai-Emscripten.pdf
 
 #### Flex Bison
 * https://www.cs.wmich.edu/~bhardin/cs4850/flexbison.pdf
