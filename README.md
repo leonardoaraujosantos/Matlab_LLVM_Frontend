@@ -143,6 +143,8 @@ Bellow we can find some references used by me during the project.
 
 #### LLVM
 * http://llvm.org/
+* http://llvm.org/docs/tutorial/LangImpl01.html
+* http://llvm.org/docs/tutorial/OCamlLangImpl4.html
 * http://gnuu.org/2009/09/18/writing-your-own-toy-compiler/
 * https://github.com/benbjohnson/llvm-c-kaleidoscope
 * http://llvm.org/docs/ProgrammersManual.html
@@ -155,6 +157,7 @@ Bellow we can find some references used by me during the project.
 * http://kripken.github.io/emscripten-site/index.html
 * http://stackoverflow.com/questions/11485531/what-exactly-phi-instruction-does-and-how-to-use-it-in-llvm
 * http://llvm.org/devmtg/2013-11/slides/Zakai-Emscripten.pdf
+* http://www.stephendiehl.com/llvm/
 
 #### Flex Bison
 * https://www.cs.wmich.edu/~bhardin/cs4850/flexbison.pdf
