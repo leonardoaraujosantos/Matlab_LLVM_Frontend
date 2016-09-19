@@ -1,5 +1,81 @@
 # Matlab LLVM Frontend
 
+## Scanning and Parsing
+Roughly speaking, scanning divides the input into meaningful chunks, called tokens,
+and parsing figures out how the tokens relate to each other. For example, consider this
+snippet of C code:
+```C
+alpha = beta + gamma ;
+```
+A scanner divides this into the tokens alpha, equal sign, beta, plus sign, gamma, and
+semicolon. Then the parser determines that beta + gamma is an expression, and that the
+expression is assigned to alpha.
+
+### Emiting code
+After the parser outputs an AST tree, we just emit LLVM code for each tree node. The result is LLVM working version of a matlab program.
+
+### Example Matlab Input
+``` matlab
+function result = justSum(a,b)
+  result = a + b
+end
+```
+
+### Result LLVM IR
+``` llvm
+; Simple sum function
+define double @justSum(double %a, double %b) #0 {
+  %result = fadd double %a, %b
+  ret double %result
+}
+```
+
+### Chaning LLVM IR to output something .... (printf is part of LLVM)
+``` llvm
+; Declare 8-byte vector ['4','+','4','=','%','f','\0A','\00']
+@.str = private unnamed_addr constant [8 x i8] c"4+4=%f\0A\00", align 1
+
+; Declare prototype for printf
+declare i32 @printf(i8*, ...)
+
+; Same function
+define double @justSum(double %a, double %b) #0 {
+  %result = fadd double %a, %b 
+  ret double %result
+}
+
+; main function 
+define i32 @main() #0 {
+  %1 = call double @justSum(double 4.000000e+00, double 4.000000e+00)
+  %2 = call i32 (i8*, ...)* @printf(i8* getelementptr inbounds ([8 x i8]* @.str, i32 0, i32 0), double %1)
+  ret i32 0
+}
+```
+
+### Motivation
+After our program is compiled on IR.... (justSum.ll)
+#### Interpret LLVM IR
+```
+lli justSum.ll
+
+4+4=8.000000
+```
+
+### Convert LLVM IR to byte code
+```
+llvm-as justSum.ll -o justSum.bc
+```
+
+#### Generate x86-64
+```
+llc -march=x86-64 justSum.ll -o justSum.S
+```
+#### Generate ARM 64-bit
+```
+llc -march=aarch64 justSum.ll -o justSum.S
+```
+
+
 ## Idea
 * Use the LLVM infrastructure to compile machine code based on Matlab/Octave syntax.
 * Generate C/C++/Javascript code from generated IR code.
