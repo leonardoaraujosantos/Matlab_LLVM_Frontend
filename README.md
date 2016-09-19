@@ -51,9 +51,8 @@ define i32 @main() #0 {
   ret i32 0
 }
 ```
+### Interpretting IR
 
-### Motivation
-After our program is compiled on IR.... (justSum.ll)
 #### Interpret LLVM IR
 ```
 lli justSum.ll
@@ -61,10 +60,15 @@ lli justSum.ll
 4+4=8.000000
 ```
 
-### Convert LLVM IR to byte code
+#### Convert LLVM IR to byte code
 ```
 llvm-as justSum.ll -o justSum.bc
 ```
+
+### Motivation
+After our program is converted to LLVM IR we can do a lot of stuff like:
+* Convert to other languages (Ex: Javascript or C/C++)
+* Compile to other architectures (ARM, x86-64, Mips, etc...)
 
 #### Generate x86-64
 ```
@@ -73,6 +77,20 @@ llc -march=x86-64 justSum.ll -o justSum.S
 #### Generate ARM 64-bit
 ```
 llc -march=aarch64 justSum.ll -o justSum.S
+```
+#### Generate Javascript (requires emscripten)
+```
+emcc justSum.ll -o justSum.js
+```
+``` JavaScript
+function _justSum($a,$b){
+ var label=0;
+
+
+ var $result=($a)+($b);
+ return $result;
+}
+
 ```
 
 
