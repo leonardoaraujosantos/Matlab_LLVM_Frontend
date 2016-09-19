@@ -74,6 +74,12 @@ After our program is converted to LLVM IR we can do a lot of stuff like:
 ```
 llc -march=x86-64 justSum.ll -o justSum.S
 ```
+
+#### Compile generated x86-64 Assembly code
+```
+clang -o justSum justSum.S
+```
+
 #### Generate ARM 64-bit
 ```
 llc -march=aarch64 justSum.ll -o justSum.S
@@ -91,6 +97,10 @@ function _justSum($a,$b){
  return $result;
 }
 
+```
+Creating a webpage with results
+```
+emcc justSum.ll -o justSum.html
 ```
 
 
@@ -156,6 +166,10 @@ Bellow we can find some references used by me during the project.
 * http://www.eecg.toronto.edu/~jzhu/csc467/readings/csc467-bison-tut.pdf
 * https://github.com/jimmahoney/bison_calculator?files=1
 * https://www.gnu.org/software/bison/manual/html_node/Graphviz.html
+
+#### Antlr (Version 3 output C/C++ code)
+* https://theantlrguy.atlassian.net/wiki/display/ANTLR3/Code+Generation+Targets
+* https://github.com/ewiger/decade/tree/master/lib/mparser
 
 #### Other Matlab frontend
 * https://github.com/rose-compiler/matlab-frontend
