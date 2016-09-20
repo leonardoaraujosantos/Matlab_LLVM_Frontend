@@ -1,6 +1,12 @@
-/* recognize tokens for the calculator and print them out */
+/*
+  Recognize tokens for the calculator and print them out
+  Compiling
+  flex calculator.l
+  gcc lex.yy.c -o calc_scan -lfl
+*/
 %{
-enum yytokentype {
+include "calculator.tab.h"
+/*enum yytokentype {
 NUMBER = 258,
 ADD = 259,
 SUB = 260,
@@ -8,7 +14,7 @@ MUL = 261,
 DIV = 262,
 ABS = 263,
 EOL = 264
-};
+};*/
 int yylval;
 %}
 
@@ -24,7 +30,7 @@ int yylval;
 . { printf("Mystery character %c\n", *yytext); }
 %%
 
-main(int argc, char **argv) {
+/*main(int argc, char **argv) {
   int tok;
 
   while(tok = yylex()) {
@@ -33,3 +39,4 @@ main(int argc, char **argv) {
     else printf("\n");
   }
   }
+*/
